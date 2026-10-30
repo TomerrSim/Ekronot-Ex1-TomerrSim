@@ -5,7 +5,7 @@
 
 using std::cout;
 using std::endl;
-
+/*
 std::string removeElementsAndGetPrintedQueue(Queue* q)
 {
 	std::stringstream output;
@@ -358,4 +358,4 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
-
+*/

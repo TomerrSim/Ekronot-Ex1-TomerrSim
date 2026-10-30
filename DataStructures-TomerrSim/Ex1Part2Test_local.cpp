@@ -7,7 +7,7 @@
 
 using std::cout;
 using std::endl;
-/*
+
 std::string popElementsAndGetPrintedStack(Stack* s)
 {
 	std::stringstream output;
@@ -372,4 +372,3 @@ int main(int argc, char* argv[])
 
 	return result;
 }
-*/

@@ -1,40 +1,72 @@
 #include "Stack.h"
 #include <iostream>
+#include "LinkedList.h"
 
-
+/*
+* Function pushes an element to the stack
+* Input: The pointer to the stack, The element to push on to the stack
+* Output: None
+*/
 void push(Stack* s, unsigned int element)
 {
-	insertAtEnd(s->buttom, element);
-	s->top = element;
+	Node *temp = new Node;
+	temp->val = element;
+	temp->next = s->top;
+
+	s->top = temp;
 }
+
+/*
+* Function pops(removes) an element from the stack
+* Input: The pointer to the stack
+* Output: The element removed from the stack
+*/
 int pop(Stack* s)
 {
-	int temp = 0;
-	Node* curr = s->buttom;
-	int deleted = deleteTop(&s->buttom);
+	int x = 0;
 
-	while (curr != NULL && curr->next != NULL) curr = curr->next;
+	if (s->top == NULL)
+	{
+		std::cout << "The Stack is Empty!" << std::endl;
+		return -1;
+	}
 
-	s->top = curr->val;
-	return deleted;
+	Node* temp = s->top;
+	s->top = s->top->next;
+
+	x = temp->val;	
+
+	delete temp;
+	return x;
+
 }
+/*
+* Function initializes the stack
+* Input: The pointer to the stack
+* Output: None
+*/
 void initStack(Stack* s)
 {
-	s->top = 0;
-	s->buttom = NULL;
+	s->top = NULL;
 }
 
+/*
+* Function cleans the stack
+* Input: The pointer to the stack
+* Output: None
+*/
 void cleanStack(Stack* s)
 {
-	deleteAll(s->buttom);
+	while (s->top != NULL) pop(s);
 }
 
+/*
+* Function checks if the stack is empty
+* Input: The pointer to the stack
+* Output: True(The stack is empty)/False(The stack isnt empty)
+*/
 bool isEmpty(Stack* s)
 {
-	return s->buttom == NULL;
+	return s->top == NULL;
 }
 
-bool isFull(Stack* s)
-{
-	return true;
-}

@@ -7,9 +7,5 @@ typedef struct Node
 	Node* next;
 } Node;
 
-Node *insertAtEnd(Node* head, int val);
-int deleteTop(Node** head);
-Node* deleteButtom(Node* head);
-void deleteAll(Node* head);
 
 #endif
